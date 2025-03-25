@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import TopRatedPage from './pages/TopRatedPage';
 import UpcomingPage from './pages/UpcomingPage';
 import SearchResults from './pages/SearchResults';
+import MovieDetail from './pages/MovieDetail';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/top-rated" element={<TopRatedPage />} />
           <Route path="/upcoming" element={<UpcomingPage />} />
           <Route path="/search/:query" element={<SearchResults />} />
+          <Route path="/movie/:id" element={<MovieDetail />} />
         </Routes>
       </div>
     </Router>
