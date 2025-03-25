@@ -1,10 +1,10 @@
-import  { useEffect, useState } from 'react';
-import { getPopularMovies } from '../services/api';
+import { useEffect, useState } from 'react';
+import { getTopRatedMovies } from '../services/api';
 import MovieCard from '../components/MovieCard';
 import { Movie } from '../types/movie';
 import { Loader } from 'lucide-react';
 
-const HomePage = () => {
+const TopRatedPage = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -12,11 +12,11 @@ const HomePage = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await getPopularMovies(page);
+        const response = await getTopRatedMovies(page);
         setMovies(prev => [...prev, ...response.data.results]);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching popular movies:', error);
+        console.error('Error fetching top-rated movies:', error);
         setLoading(false);
       }
     };
@@ -27,7 +27,7 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-gray-800 pt-20 px-6">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-3xl font-bold text-white mb-8">Popular Movies</h1>
+        <h1 className="text-3xl font-bold text-white mb-8">Top Rated Movies</h1>
         {loading && page === 1 ? (
           <div className="flex justify-center items-center h-64">
             <Loader className="animate-spin text-white" size={48} />
@@ -54,4 +54,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default TopRatedPage;
