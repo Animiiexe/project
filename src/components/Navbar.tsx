@@ -48,7 +48,7 @@ const Navbar = () => {
         <div className="flex items-center space-x-8">
           <Link to="/" className="flex items-center space-x-2 text-xl font-bold">
             <Film size={24} />
-            <span>MovieDB</span>
+            <span>MY MOVIE LIST</span>
           </Link>
           
           <div className="hidden md:flex space-x-6">
