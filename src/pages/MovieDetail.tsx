@@ -156,6 +156,7 @@ const MovieDetail: React.FC = () => {
               <h2 className="text-2xl font-semibold mb-4">Top Cast</h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                 {cast.map((actor) => (
+                  <a href={`https://www.themoviedb.org/person/${actor.id}`} target="_blank" rel="noreferrer"> 
                   <div key={actor.id} className="bg-gray-700 rounded-lg p-3 hover:bg-gray-600 transition-colors">
                     {actor.profile_path ? (
                       <img
@@ -174,6 +175,7 @@ const MovieDetail: React.FC = () => {
                     <p className="font-medium">{actor.name}</p>
                     <p className="text-sm text-gray-400">{actor.character}</p>
                   </div>
+                  </a>
                 ))}
               </div>
             </div>
